@@ -139,27 +139,31 @@ export const patchUser = async (req, res, next) => {
 };
 
 export const getUserData = async (req, res, next) => {
-  try {
-    const userId = req.params.userId;
-    const users = await getDocs(collection(db, "users"));
-    const userArray = [];
+    try {
+        const userId = req.params.userId;
+        const users = await getDocs(collection(db, "users"));
+        const userArray = [];
 
-    if (users.empty) {
-      res.status(400).send("No Users found");
-    } else {
-      users.forEach((doc) => {
-        if (doc.data().userId === userId) {
-          const user = new User(
-            doc.data().userId,
-            doc.data().userName,
-            doc.data().userImg,
-            doc.data().age,
-            doc.data().contact,
-            doc.data().closeContacts,
-            doc.data().coordinates,
-            doc.data().data
-          );
-          userArray.push(user);
+        if (users.empty) {
+            res.status(400).send("No Users found");
+        } else {
+            users.forEach((doc) => {
+                if (doc.data().userId === userId) {
+                    const user = new User(
+                        doc.data().userId,
+                        doc.data().userName,
+                        doc.data().userImg,
+                        doc.data().age,
+                        doc.data().contact,
+                        doc.data().closeContacts,
+                        doc.data().coordinates,
+                        doc.data().data
+                    );
+                    userArray.push(user);
+                }
+            });
+
+            res.status(200).send(userArray);
         }
       });
 
