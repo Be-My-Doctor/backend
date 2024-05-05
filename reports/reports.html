@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasta de Relatórios</title>
+  </head>
+  <body>
+    <h1>Pasta de Relatórios</h1>
+    <ul id="report-list"></ul>
+    <script>
+      // Função para buscar a lista de relatórios
+      async function fetchReports() {
+        try {
+          const response = await fetch("http://localhost:5000/api/reports");
+          const reports = await response.json();
+          const reportList = document.getElementById("report-list");
+          reports.forEach((report) => {
+            const listItem = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = report.url;
+            link.textContent = report.name;
+            link.target = "_blank";
+            listItem.appendChild(link);
+            reportList.appendChild(listItem);
+          });
+        } catch (error) {
+          console.error("Erro ao buscar relatórios:", error);
+        }
+      }
+
+      // Chama a função para buscar os relatórios ao carregar a página
+      fetchReports();
+    </script>
+  </body>
+</html>
