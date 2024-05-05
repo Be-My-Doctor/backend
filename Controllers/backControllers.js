@@ -137,8 +137,8 @@ export const patchUser = async (req, res, next) => {
         res.status(400).send(error.message);
     }
 };
-
-export const getUserPosts = async (req, res, next) => {
+''
+export const getUserData = async (req, res, next) => {
     try {
         const userId = req.params.userId;
         const users = await getDocs(collection(db, "users"));
