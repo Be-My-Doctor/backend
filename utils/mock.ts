@@ -1,15 +1,15 @@
 const user = {
 	userId: "fst5yrdgsdf4r",
-	userName: "Dyki",
-	userImg: "r2rewfsdg434",
+	userName: "Dano Yuki",
+	userImg: "https://picsum.photos/200",
 	age: 83,
-	contact: "1234567890",
-	closeContacts: ["1234567890", "1234567890"],
+	contact: "+55 11 4002-8922",
+	closeContacts: ["+55 71 9363-8275", "+55 11 99555-2829"],
 	coordinates: [123.456, 123.456],
 	data: []
 }
 
 const data = {
-	userId: "asdjgh38j",
-	userName: "Dyki",
+	name: "14",
+	heartrate: 102,
 }

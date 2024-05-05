@@ -10,6 +10,7 @@ export type UserDataType = {
 };
 
 export type DataType = {
-    userId: string;
-    userName: string;
+    index: number;
+    time: string;
+    heartrate: number;
 };
